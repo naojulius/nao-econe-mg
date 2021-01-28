@@ -1,1 +1,67 @@
-<p>emploie works!</p>
+<app-nav-bar></app-nav-bar>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="left-sidebar">
+                    <h2>Category</h2>
+                    <div class="panel-group category-products" id="accordian">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" *ngFor="let categ of category">
+                                <h4 class="panel-title"><a href="#">{{ categ.value }}</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="price-range">
+                        <h2>Price Range</h2>
+                        <div class="well text-center">
+                                <ngx-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ngx-slider>
+                        </div>
+                    </div>
+                    <div class="shipping text-center">
+                        <img src="assets/images/home/shipping.jpg" alt="" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-9 padding-right">
+                <h2 class="title text-center">Liste des emploies</h2>
+                <div class="features_items">
+                   <div *ngIf="showLoading; else jobListeTemplate" style="width: 100%;">
+                         <app-loader></app-loader>
+                   </div>
+                   <ng-template #jobListeTemplate>
+                    <div class="col-sm-4" *ngFor="let job of jobListe">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo text-center">
+                                    <h2 style="font-size: 15px !important;">{{ job.poste }}</h2>
+                                    <div class="d-flex d-inline-flex justify-content-between w-100">
+                                        <span>
+                                            {{ job.society }}
+                                        </span>
+                                        <span>
+                                            <code>{{ job.contract }}</code>
+                                        </span>
+                                    </div>
+                                    <hr>
+                                    <p>{{ job.description }}</p>
+                                    
+                                    <button href="#" (click)="onClickJob(job)" class="btn btn-default add-to-cart"><i
+                                            class="fa fa-shopping-cart"></i>Détails</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   </ng-template>
+                </div>
+                <div class="float-right pt-3">
+                    <span
+                        *ngFor="let item of getPaginateCount() | paginate: { itemsPerPage: getTableDataParam.pageLength, currentPage: getTableDataParam.page }"
+                        style="visibility: none"></span>
+                    <pagination-controls (pageChange)="onPageChanged($event)"></pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

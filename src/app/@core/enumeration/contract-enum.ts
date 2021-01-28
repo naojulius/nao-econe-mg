@@ -1,5 +1,5 @@
 export enum ContractEnum{
-    CDD,
-    CDI,
-    FREELANCE
+    CDD="CDD",
+    CDI="CDI",
+    FREELANCE="FREELANCE"
 }

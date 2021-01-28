@@ -11,5 +11,5 @@ export abstract class AuthService {
     abstract logOut();
     abstract getUserParam(param): string;
     abstract login(userLoginReq: UserLoginReq):  Observable<HttpResponse<string> | Observable<never>>;
-    abstract Registration(user: User):  Observable<HttpResponse<User> | Observable<never>>;
+    abstract Registration(user: User):  Observable<HttpResponse<string> | Observable<never>>;
 }

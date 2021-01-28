@@ -38,6 +38,11 @@ const routes: Routes = [
     loadChildren: () => import('../pages/forms/forms.module')
     .then(m => m.LocalFormsModule),
   },
+  {
+    path: "details",
+    loadChildren: ()=> import('../pages/details/details.module').then(m => m.DetailsModule),
+  }
+  
 ];
 
 @NgModule({

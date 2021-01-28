@@ -1,0 +1,159 @@
+
+<header id="header">
+        <!--header-->
+        <div class="header_top">
+            <!--header_top-->
+            
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="contactinfo">
+                            <ul class="nav nav-pills">
+                                <li><a href="#" class="p-1"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
+                                <li><a href="#" class="p-1"><i class="fa fa-envelope"></i> info@domain.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="social-icons pull-right">
+                            <ul class="nav">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default dropdown-toggle usa"
+                                            data-toggle="dropdown">
+                                            Français
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">Anglais</a></li>
+                                            <li><a href="#">Malagasy</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/header_top-->
+
+        <div class="header-middle">
+            <!--header-middle-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="logo pull-left">
+                            <a  href="/"><img style="width: 100px !important;height: auto !important;" src="assets/images/logo/logo.svg" alt="" /></a>
+                        </div>
+                        <!-- <div class="btn-group pull-right">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle usa"
+                                    data-toggle="dropdown">
+                                    Français
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Anglais</a></li>
+                                    <li><a href="#">Malagasy</a></li>
+                                </ul>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="shop-menu pull-right">
+                            <ul class="nav ">
+                                <li><a href="#"><i class="fa fa-user"></i> Compte</a></li>
+                                <!-- <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
+                                <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li> -->
+                                <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Panier</a></li>
+                                <li *ngIf="!isAuthenticated"><a  href="/auth"><i class="fa fa-lock"></i> Login</a>
+                                </li>
+                                <li *ngIf="isAuthenticated"><a href="#" (click)="onLogOut()"><i class="fa fa-lock"></i>
+                                        Déconnexion</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/header-middle-->
+
+        <div class="header-bottom">
+            <!--header-bottom-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <div class="navbar-header">
+                            <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button> -->
+                        </div>
+                        <div class="mainmenu pull-left">
+                            <ul class="nav">
+                                <li><a href="/pages/home" [class]="homeActive">Home</a></li>
+                                <li class="dropdown">
+                                    <a type="button" href="#" [class]="achatVenteActive" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false"> Achats & Ventes<i class="fa fa-angle-down"></i></a>
+                                    <ul class="dropdown-menu">
+                                        <li></li>
+                                        <li class="dropdown-item" *ngIf="isAuthenticated"><a href="/pages/forms/new-vente">Vendre des produits</a></li>
+                                        <li class="dropdown-item"  *ngIf="isAuthenticated"><a href="#">Mes ventes</a></li>
+                                        <li class="dropdown-item"><a href="/achat-vente"> Ventes dispo.</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a type="button" href="#" [class]="annonceActive" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false"> Petites annnes<i class="fa fa-angle-down"></i></a>
+                                    <ul class="dropdown-menu">
+                                        <li></li>
+                                        <li class="dropdown-item" *ngIf="isAuthenticated"><a href="#" routerLink="/pages/forms/new-annonce">Nouvelle annonce</a></li>
+                                        <li class="dropdown-item"><a href="#">Annonce Flash</a></li>
+                                        <li class="dropdown-item"  *ngIf="isAuthenticated"><a href="#">Mes annonces</a></li>
+                                        <li class="dropdown-item"><a href="/petite-annonce" >Annonces dispo.</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a type="button" href="#" [class]="emploieActive" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">Emploies<i class="fa fa-angle-down"></i></a>
+                                    <ul class="dropdown-menu">
+                                        <li></li>
+                                        <li class="dropdown-item" *ngIf="isAuthenticated"><a href="/pages/forms/new-emploie">Nouvelle emploie</a></li>
+                                        <li class="dropdown-item"  *ngIf="isAuthenticated"><a href="#">Mes emploies</a></li>
+                                        <li class="dropdown-item"><a href="pages/emploie" >Emploies dispo.</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a type="button" href="#" [class]="rencontreActive" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">Rencontre<i class="fa fa-angle-down"></i></a>
+                                    <ul class="dropdown-menu">
+                                        <li></li>
+                                        <li class="dropdown-item" *ngIf="isAuthenticated"><a href="#" routerLink="">Nouvelle rencontre <code>(soon)</code></a></li>
+                                        <li class="dropdown-item"  *ngIf="isAuthenticated"><a href="#">Mes rencontres <code>(soon)</code></a></li>
+                                        <li class="dropdown-item"><a href="#">Rencontres dispo <code>(soon)</code></a></li>
+                                    </ul>
+                                </li>
+                                <!-- <li><a href="404.html">404</a></li>
+                                <li><a href="contact-us.html">Contact</a></li> -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="search_box pull-right">
+                            <input type="text" placeholder="Search" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/header-bottom-->
+    </header>
+    <!--/header-->

@@ -1,1 +1,99 @@
-<p>new-emploie works!</p>
+<app-nav-bar></app-nav-bar>
+<section id="form">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-1">
+                <div class="login-form">
+                    <h2>Détails de l'emploie.</h2>
+                    <form #f="ngForm" name="f" (ngSubmit)="f.form.valid && save()">
+                      <div class="form-group">  
+                        <input  #posteInput="ngModel" required rows="5"  id="poste" name="poste" [(ngModel)]="job.poste"   placeholder="Poste à occuper"/>
+                        <div *ngIf="f.submitted && posteInput.invalid" class='error-label'>
+                          <div class="error-label" *ngIf="posteInput.errors.required">Ce champ est obligatoire</div>
+                        </div>
+                      </div>
+                      <div class="form-group">  
+                        <input  #societyInput="ngModel" required rows="5"  id="society" name="society" [(ngModel)]="job.society"   placeholder="Société"/>
+                        <div *ngIf="f.submitted && societyInput.invalid" class='error-label'>
+                          <div class="error-label" *ngIf="societyInput.errors.required">Ce champ est obligatoire</div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <select aria-placeholder="Contrat" required #contractInput="ngModel" required rows="5"  id="contract" name="contract" [(ngModel)]="job.contract">
+                          <option *ngFor="let contract of contractKeys(contracts)">{{ contract }}</option>
+                        </select>
+                        <div *ngIf="f.submitted && contractInput.invalid" class='error-label'>
+                          <div class="error-label" *ngIf="contractInput.errors.required">Ce champ est obligatoire</div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <textarea style="height: 120px;" placeholder="Déscription"  #descriptionInput="ngModel" required rows="5"  id="description" name="description" [(ngModel)]="job.description" ></textarea>
+                        <div *ngIf="f.submitted && descriptionInput.invalid" class='error-label'>
+                          <div class="error-label" *ngIf="descriptionInput.errors.required">Ce champ est obligatoire</div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <textarea style="height: 120px;" placeholder="Déscription de la société"  #societyDescriptionInput="ngModel" required rows="5"  id="societyDescription" name="societyDescription" [(ngModel)]="job.societyDescription" ></textarea>
+                        <div *ngIf="f.submitted && societyDescriptionInput.invalid" class='error-label'>
+                          <div class="error-label" *ngIf="societyDescriptionInput.errors.required">Ce champ est obligatoire</div>
+                        </div>
+                      </div> 
+                      <div class="form-group">  
+                        <input type="number"  #salaryInput="ngModel" required rows="5"  id="salary" name="salary" [(ngModel)]="job.salary"   placeholder="Salaire"/>
+                        <div *ngIf="f.submitted && salaryInput.invalid" class='error-label'>
+                          <div class="error-label" *ngIf="salaryInput.errors.required">Ce champ est obligatoire</div>
+                        </div>
+                      </div>
+                        <button type="submit" class="btn btn-default">Enregistrer</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <!-- <div class="signup-form">
+                    <h2>Images</h2>
+                    <div class="form-group">   
+                        <label for="suggestion_image" class="label">Ajouter une photo.</label>
+                        <input type="file"  #file1  (change)="onFile1Selected($event)" style="display: none;" name="file1">
+                        <div class="row"> 
+                            <button class="btn btn-default"  type="button" (click)="file1.click()"> 
+                            choisir fichier        
+                            </button>
+                            <span class="p-2">{{ imageSuggestionLabel1 }}</span>
+                        </div>
+                      </div>
+                      <div class="form-group">   
+                        <label for="suggestion_image" class="label">Ajouter une photo.</label>
+                        <input type="file"  #file2  (change)="onFile2Selected($event)" style="display: none;" name="file2">
+                        <div class="row"> 
+                            <button class="btn btn-default"  type="button" (click)="file2.click()"> 
+                            choisir fichier        
+                            </button>
+                            <span class="p-2">{{ imageSuggestionLabel2 }}</span>
+                        </div>
+                      </div>
+                      <div class="form-group">   
+                        <label for="suggestion_image" class="label">Ajouter une photo.</label>
+                        <input type="file"  #file3  (change)="onFile3Selected($event)" style="display: none;" name="file3">
+                        <div class="row"> 
+                            <button class="btn btn-default"  type="button" (click)="file3.click()"> 
+                            choisir fichier        
+                            </button>
+                            <span class="p-2">{{ imageSuggestionLabel3 }}</span>
+                        </div>
+                      </div>
+                      <div class="form-group">   
+                        <label for="suggestion_image" class="label">Ajouter une photo.</label>
+                        <input type="file"  #file4  (change)="onFile4Selected($event)" style="display: none;" name="file4">
+                        <div class="row"> 
+                            <button class="btn btn-default"  type="button" (click)="file4.click()"> 
+                            choisir fichier        
+                            </button>
+                            <span class="p-2">{{ imageSuggestionLabel4 }}</span>
+                        </div>
+                      </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

@@ -11,5 +11,8 @@ export class NewAnnonceComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  save(){
+    
+  }
 
 }

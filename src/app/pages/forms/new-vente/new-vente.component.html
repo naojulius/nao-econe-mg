@@ -1,2 +1,112 @@
-<p>new-vente works!</p>
-<!-- <ngx-dates-picker [(ngModel)]="date" /> -->
+
+
+<app-nav-bar></app-nav-bar>
+<section id="form">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-1">
+                <div class="login-form">
+                    <h2>Détails de votre produit.</h2>
+                    <form #f="ngForm" name="f" (ngSubmit)="f.form.valid && save()">
+                        <div class="form-group">
+                           
+                            <input  #venteTitleInput="ngModel" required rows="5"  id="venteTitle" name="venteTitle" [(ngModel)]="venteTitle"   placeholder="Titre du produit"/>
+                            <div *ngIf="f.submitted && venteTitleInput.invalid" class='error-label'>
+                              <div class="error-label" *ngIf="venteTitleInput.errors.required">Ce champ est obligatoire</div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                           
+                            <input  #venteSubTitleInput="ngModel" required rows="5"  id="venteSubTitle" name="venteSubTitle" [(ngModel)]="venteSubTitle"   placeholder="Sous titre du produit"/>
+                            <div *ngIf="f.submitted && venteSubTitleInput.invalid" class='error-label'>
+                              <div class="error-label" *ngIf="venteSubTitleInput.errors.required">Ce champ est obligatoire</div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <select  #venteCategoryInput="ngModel" required rows="5"  id="venteCategory" name="venteCategory" [(ngModel)]="venteCategory" >
+                                <option value=""></option>
+                                <option *ngFor="let category of categoryArray" value="{{ category.id }}">{{ category.value }}</option>
+                            </select>
+                            <div *ngIf="f.submitted && venteCategoryInput.invalid" class='error-label'>
+                                <div  class="error-label" *ngIf="venteCategoryInput.errors.required">Ce champ est obligatoire</div>
+                              </div>
+                            <!-- <input  #venteTitleInput="ngModel" required rows="5"  id="venteTitle" name="venteTitle" [(ngModel)]="venteTitle"   placeholder="Titre du produit"/>
+                             -->
+                          </div>
+                          <div class="form-group">
+                            
+                            <input  #venteMarqueInput="ngModel" required rows="5"  id="venteMarque" name="venteMarque" [(ngModel)]="venteMarque"   placeholder="Marque du produit"/>
+                            <div *ngIf="f.submitted && venteMarqueInput.invalid" class='error-label'>
+                              <div class="error-label" *ngIf="venteMarqueInput.errors.required">Ce champ est obligatoire</div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                           
+                            <textarea style="height: 120px;" placeholder="Déscription du produit"  #venteDescriptionInput="ngModel" required rows="5"  id="venteDescription" name="venteDescription" [(ngModel)]="venteDescription" ></textarea>
+                            <div *ngIf="f.submitted && venteDescriptionInput.invalid" class='error-label'>
+                              <div class="error-label" *ngIf="venteDescriptionInput.errors.required">Ce champ est obligatoire</div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            
+                            <input type="number"  #ventePriceInput="ngModel" required rows="5"  id="ventePrice" name="ventePrice" [(ngModel)]="ventePrice"  placeholder="Prix du produit"/>
+                            <div *ngIf="f.submitted && ventePriceInput.invalid" class='error-label'>
+                              <div class="error-label" *ngIf="ventePriceInput.errors.required">Ce champ est obligatoire</div>
+                            </div>
+                          </div>
+
+
+                        <button type="submit" class="btn btn-default">Enregistrer</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="signup-form">
+                    <h2>Images</h2>
+                    <div class="form-group">   
+                        <label for="suggestion_image" class="label">Ajouter une photo.</label>
+                        <input type="file"  #file1  (change)="onFile1Selected($event)" style="display: none;" name="file1">
+                        <div class="row"> 
+                            <button class="btn btn-default"  type="button" (click)="file1.click()"> 
+                            choisir fichier        
+                            </button>
+                            <span class="p-2">{{ imageSuggestionLabel1 }}</span>
+                        </div>
+                      </div>
+                      <div class="form-group">   
+                        <label for="suggestion_image" class="label">Ajouter une photo.</label>
+                        <input type="file"  #file2  (change)="onFile2Selected($event)" style="display: none;" name="file2">
+                        <div class="row"> 
+                            <button class="btn btn-default"  type="button" (click)="file2.click()"> 
+                            choisir fichier        
+                            </button>
+                            <span class="p-2">{{ imageSuggestionLabel2 }}</span>
+                        </div>
+                      </div>
+                      <div class="form-group">   
+                        <label for="suggestion_image" class="label">Ajouter une photo.</label>
+                        <input type="file"  #file3  (change)="onFile3Selected($event)" style="display: none;" name="file3">
+                        <div class="row"> 
+                            <button class="btn btn-default"  type="button" (click)="file3.click()"> 
+                            choisir fichier        
+                            </button>
+                            <span class="p-2">{{ imageSuggestionLabel3 }}</span>
+                        </div>
+                      </div>
+                      <div class="form-group">   
+                        <label for="suggestion_image" class="label">Ajouter une photo.</label>
+                        <input type="file"  #file4  (change)="onFile4Selected($event)" style="display: none;" name="file4">
+                        <div class="row"> 
+                            <button class="btn btn-default"  type="button" (click)="file4.click()"> 
+                            choisir fichier        
+                            </button>
+                            <span class="p-2">{{ imageSuggestionLabel4 }}</span>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--/form-->
+
+<app-footer></app-footer>

@@ -8,14 +8,15 @@ export const environment = {
   //api_host: "http://www.econe-mg.somee.com",
   //app===>https://web-kreativity-econe-mg.herokuapp.com/
   // intern routes
-  achat_vente: "pages/achat-vente",
-  emploie: "pages/emploie",
+  achat_vente: "/achat-vente",
+  emploie: "/pages/emploie",
   rencontre: "pages/rencontre",
-  petite_annonce: "pages/petite-annonce",
-  home: "pages/home",
+  petite_annonce: "/petite-annonce",
+  home: "/pages/home",
   petite_annonce_detail: "pages/petite-annonce-detail",
   achat_vente_detail: "pages/achat-vente-detail",
-  job_detail: "pages/job-detail",
+  job_detail: "pages/details/emploie-details",
+  vente_detail: "pages/details/vente-details",
   rencontre_detail: "pages/rencontre-detail",
 
   registration: "/auth/registration",
@@ -29,6 +30,7 @@ export const environment = {
 
 
   doLogin: "/api/authentication/login",
+  doRegistration: "/api/authentication/registration",
   get_pickList: "/api/pickList/getByGroup?pickListGroup=",
   api_new_vente: "/api/vente/add",
   api_get_unauthentified_vente: '/api/vente/getUnauthentified',

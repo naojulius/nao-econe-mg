@@ -1,0 +1,40 @@
+<app-nav-bar></app-nav-bar>
+
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="home-body">
+                <div class="job-container">
+                    <h1>{{job.poste}}</h1>
+                    <hr>
+                    {{job.date | date}} |  {{ job.society }} |  Contrat {{job.contract}} | 
+            
+                    <div class="description-container" style="width: 55%;">
+                            <h2>ACTIVITÉ DE L'ENTREPRISE</h2>
+                            <p>
+                                {{job.societyDescription}}
+                            </p>
+                    </div>
+                    <div class="mission-container">
+                        <h2>MISSIONS</h2>
+                        <h3>Votre tâche principale sera de concevoir et de réaliser l'identité visuelle du site de l’entreprise</h3>
+                        <div>
+                            Les activités :
+                            <ul>
+                                <li *ngFor="let missions of job.mission">{{missions.value}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="profil-container">
+                        <h2>PROFIL</h2>
+                        <ul>
+                            <li *ngFor="let profils of job.profil">{{profils.value}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

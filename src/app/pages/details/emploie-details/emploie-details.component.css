@@ -1,0 +1,55 @@
+
+.annonce-cntr{
+    width: 100%;
+    font-size: 12px;
+    display: flex;
+  }
+  .annonce{
+      border: 0.2px solid lightgray;
+      padding: 10px;
+      cursor: pointer;
+  }
+  .annonce-img{
+    /* width: 98px;
+    height: 80px;
+    padding: 4px; */
+    width: 186px;
+      height: 128px;
+      padding: 6px;
+  }
+  .annonce:hover{
+      border: 0.2px solid lightgray;
+      padding: 10px;
+      cursor: pointer;
+      background-color: rgba(211, 211, 211, 0.589);
+  }
+  
+  .annonce-title{
+    padding-left: 3px;
+  }
+  
+  .petites-annonces-container{
+    display: flex;
+      flex-wrap: wrap;
+      /* justify-content: space-between;
+  
+      align-items: flex-start; */
+      /* width: 100%; */
+  }
+  
+  .annonce-footer{
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      padding: 2px;
+  }
+  .annonce-header{
+    display: flex;
+    justify-content: space-between;
+  }
+  .date{
+    color: chocolate;
+  }
+  .price{
+    color: darkgreen;
+  }

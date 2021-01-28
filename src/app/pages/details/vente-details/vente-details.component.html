@@ -1,0 +1,42 @@
+<app-nav-bar></app-nav-bar>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div>
+                <div style="position: relative;">
+                    <drag-scroll #nav [scrollbar-hidden]="true">
+                      <div style="padding:5px;" *ngFor="let image of vente.images" drag-scroll-item>
+                        <img class="drag-scroll-img" src="{{imagePath}}file={{image.value}}&type=vente" />
+                      </div>
+                    </drag-scroll>
+                    <div class="buttonScrollContainer">
+                      <span class="lr" (click)="moveLeft()" style="    text-align: center;
+                      font-size: 21px;"><i class="fa fa-chevron-left"></i></span>
+                      <span class="lr" (click)="moveRight()" style="    text-align: center;
+                      font-size: 21px;"><i class="fa fa-chevron-right"></i></span>
+                    </div>
+                  </div>
+                <h3>
+                    {{vente.title}}
+                </h3>
+    
+                <div>
+                    <h3>{{vente.price}} ARIARY</h3>
+                </div>
+                <hr>
+                <div>
+                    <h2>Description</h2>
+                    <p>
+                        {{vente.description}}
+                    </p>
+                </div>
+                <div>
+                    <button class="btn btn-warning">Envoyer Message</button>
+                    <button class="btn btn-success" >Acheter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

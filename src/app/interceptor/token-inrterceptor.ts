@@ -10,7 +10,7 @@ export class TokenInterceptor implements HttpInterceptor {
   constructor(private router: Router, private loadingService: LocalLoadingService) { }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpSentEvent | HttpHeaderResponse | HttpProgressEvent | HttpResponse<any> | HttpUserEvent<any>> {
    // this.loadingService.emitChange(true);
-   // if (!req.url.endsWith(environment.api_new_vente) && !req.url.endsWith(environment.api_new_flash_annonce) && !req.url.endsWith(environment.api_new_annonce)) { 
+    if (!req.url.endsWith(environment.api_new_vente) && !req.url.endsWith(environment.api_new_flash_annonce) && !req.url.endsWith(environment.api_new_annonce)) { 
       req = req.clone({
         setHeaders: {
           'Content-Type': 'application/json',
@@ -18,7 +18,7 @@ export class TokenInterceptor implements HttpInterceptor {
           //  Authorization: `Bearer ${this.authService.getUserParam('usertoken')}`
         }
       })
-  //  }
+    }
     return this.handleRequest(req, next);
   }
   handleRequest(req: HttpRequest<any>, next: HttpHandler) {

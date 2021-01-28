@@ -11,11 +11,22 @@ import { environment } from 'src/environments/environment';;
 import { Datatable } from 'src/app/@core/Entity/datatable/data-table';
 import { GetTableDataParam } from 'src/app/@core/Entity/datatable/get-table-data-param';
 import { VenteReq } from 'src/app/@core/entity/vente/vente-req';
+import { ToastrService } from 'ngx-toastr';
 
 
 
 @Injectable()
  export class ApiVenteService extends VenteService {
+    newVente(vente: FormData): Observable<HttpResponse<any> | Observable<never>> {
+        return this.apiService.PostMultipart<boolean>(environment.api_new_vente, vente).pipe(
+            map((x: HttpResponse<boolean>) => {
+                return this.handleResponse<string>(true, x);
+            }),
+            catchError(error => {               
+                return this.catchError(true, error);
+            })
+        );
+    }
     getVentesforUnAuthentified(showNotif: boolean, venteReq: VenteReq): Observable<Observable<never> | HttpResponse<Vente[]>> {
         return this.apiService.post<Vente[]>(environment.api_get_unauthentified_vente, venteReq).pipe(
             map((x: HttpResponse<Vente[]>) => {
@@ -26,7 +37,7 @@ import { VenteReq } from 'src/app/@core/entity/vente/vente-req';
             })
         );
     }
-    constructor(private apiService: ApiService) {
+    constructor(private apiService: ApiService, private toastrService: ToastrService) {
         super();
     }
     getAll(getTableDataParam: GetTableDataParam): Observable<HttpResponse<Datatable<Vente[]>> | Observable<never>> {

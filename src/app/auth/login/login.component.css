@@ -1,17 +1,9 @@
 
 #form {
     display: block;
-    margin-bottom: 185px;
-    margin-top: 185px;
+    margin-bottom: 50px;
+    margin-top: 50px;
     overflow: hidden;
-  }
-  
-  .login-form {
-  
-  }
-  
-  .signup-form {
-  
   }
   
   .login-form h2, .signup-form h2 {

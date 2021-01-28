@@ -1,0 +1,33 @@
+drag-scroll {
+    padding: 10px;
+    height: 310px;
+  }
+.drag-scroll-img {
+    height: 280px;
+    width: auto;
+    padding: 10px;
+    cursor: pointer;
+  
+    border: 0.3px solid lightgray;
+    padding: 10px;
+  }
+  .buttonScrollContainer{
+    position: absolute;
+    top: 50%;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .lr{
+    background: #464040;
+    color: white;
+    border-radius: 65px;
+    cursor: pointer;
+    border: 1px solid white;
+    height: 30px;
+    width: 30px;
+  }
+  .lr:hover{
+    box-shadow: 0px 0px 4px 3px #d6d6d6;
+  }

@@ -1081,6 +1081,9 @@ ul.sub-menu{
 
 }
 
-
-/* price range */
+.error-label{
+  color: #fe980f;
+    font-size: 11px;
+    font-family: cursive;
+}
 

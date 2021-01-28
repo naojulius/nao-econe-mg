@@ -11,4 +11,5 @@ import { VenteReq } from '../entity/vente/vente-req';
 export abstract class VenteService {
     abstract getAll(getTableDataParam: GetTableDataParam): Observable<HttpResponse<Datatable<Array<Vente>>> | Observable<never>>;
     abstract getVentesforUnAuthentified(showNotif:boolean, venteReq: VenteReq): Observable<HttpResponse<Vente[]> | Observable<never>>;
+    abstract newVente(vente: FormData): Observable<HttpResponse<any> | Observable<never>>;
 }

@@ -6,6 +6,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { RenewPasswordComponent } from './renew-password/renew-password.component';
 import { AuthRoutingModule } from './auth-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonSharedModule } from '../pages/commons/common-shared.module';
 
 
 
@@ -16,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AuthRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    CommonSharedModule
     
   ]
 })
